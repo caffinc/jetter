@@ -6,7 +6,7 @@
 
     <groupId>com.caffinc.jetter</groupId>
     <artifactId>jetter-core</artifactId>
-    <version>0.1</version>
+    <version>0.2.0</version>
 
     <name>Jetter</name>
     <description>Jersey 2, Jetty and Swagger backed easy API platform</description>
@@ -73,15 +73,37 @@
     </build>
 
     <properties>
-        <druid-version>0.9.0</druid-version>
-        <jetty-version>9.2.10.v20150310</jetty-version>
+        <!-- Going over this version for Jetty seems to require Java 1.8 -->
+        <jetty-version>9.2.18.v20160721</jetty-version>
+        <jersey2-version>2.25</jersey2-version>
+        <swagger-version>1.5.10</swagger-version>
+
         <slf4j-version>1.7.21</slf4j-version>
-        <swagger-version>1.5.8</swagger-version>
-        <jackson-version>2.7.3</jackson-version>
-        <retrofit-version>2.0.1</retrofit-version>
+        <junit-version>4.12</junit-version>
+
+        <retrofit-version>1.9.0</retrofit-version>
+        <retrofit2-version>2.1.0</retrofit2-version>
         <okhttp-version>3.2.0</okhttp-version>
     </properties>
     <dependencies>
+        <!-- Jersey2 Dependencies -->
+        <dependency>
+            <groupId>org.glassfish.jersey.containers</groupId>
+            <artifactId>jersey-container-servlet-core</artifactId>
+            <version>${jersey2-version}</version>
+        </dependency>
+        <dependency>
+            <groupId>org.glassfish.jersey.media</groupId>
+            <artifactId>jersey-media-multipart</artifactId>
+            <version>${jersey2-version}</version>
+        </dependency>
+        <dependency>
+            <groupId>org.glassfish.jersey.media</groupId>
+            <artifactId>jersey-media-json-jackson</artifactId>
+            <version>${jersey2-version}</version>
+        </dependency>
+
+        <!-- Jetty 9 Dependencies -->
         <dependency>
             <groupId>org.eclipse.jetty</groupId>
             <artifactId>jetty-server</artifactId>
@@ -97,27 +119,37 @@
             <artifactId>jetty-servlets</artifactId>
             <version>${jetty-version}</version>
         </dependency>
+
+        <!-- Swagger Dependencies -->
         <dependency>
             <groupId>io.swagger</groupId>
-            <artifactId>swagger-jersey2-jaxrs</artifactId>
+            <artifactId>swagger-jaxrs</artifactId>
             <version>${swagger-version}</version>
         </dependency>
+
+        <!-- Test Dependencies -->
         <dependency>
             <groupId>org.slf4j</groupId>
             <artifactId>slf4j-log4j12</artifactId>
-            <version>1.7.12</version>
+            <version>${slf4j-version}</version>
             <scope>test</scope>
         </dependency>
         <dependency>
             <groupId>junit</groupId>
             <artifactId>junit</artifactId>
-            <version>4.12</version>
+            <version>${junit-version}</version>
             <scope>test</scope>
         </dependency>
         <dependency>
-            <groupId>com.squareup.retrofit</groupId>
+            <groupId>com.squareup.retrofit2</groupId>
             <artifactId>retrofit</artifactId>
-            <version>1.9.0</version>
+            <version>${retrofit2-version}</version>
+            <scope>test</scope>
+        </dependency>
+        <dependency>
+            <groupId>com.squareup.retrofit2</groupId>
+            <artifactId>converter-jackson</artifactId>
+            <version>${retrofit2-version}</version>
             <scope>test</scope>
         </dependency>
     </dependencies>
