@@ -6,7 +6,7 @@
 
     <groupId>com.caffinc.jetter</groupId>
     <artifactId>jetter-core</artifactId>
-    <version>0.2.0</version>
+    <version>0.3.0</version>
 
     <name>Jetter</name>
     <description>Jersey 2, Jetty and Swagger backed easy API platform</description>
@@ -75,7 +75,6 @@
     <properties>
         <!-- Going over this version for Jetty seems to require Java 1.8 -->
         <jetty-version>9.2.18.v20160721</jetty-version>
-        <jersey2-version>2.25</jersey2-version>
         <swagger-version>1.5.10</swagger-version>
 
         <slf4j-version>1.7.21</slf4j-version>
@@ -86,23 +85,6 @@
         <okhttp-version>3.2.0</okhttp-version>
     </properties>
     <dependencies>
-        <!-- Jersey2 Dependencies -->
-        <dependency>
-            <groupId>org.glassfish.jersey.containers</groupId>
-            <artifactId>jersey-container-servlet-core</artifactId>
-            <version>${jersey2-version}</version>
-        </dependency>
-        <dependency>
-            <groupId>org.glassfish.jersey.media</groupId>
-            <artifactId>jersey-media-multipart</artifactId>
-            <version>${jersey2-version}</version>
-        </dependency>
-        <dependency>
-            <groupId>org.glassfish.jersey.media</groupId>
-            <artifactId>jersey-media-json-jackson</artifactId>
-            <version>${jersey2-version}</version>
-        </dependency>
-
         <!-- Jetty 9 Dependencies -->
         <dependency>
             <groupId>org.eclipse.jetty</groupId>
@@ -123,7 +105,7 @@
         <!-- Swagger Dependencies -->
         <dependency>
             <groupId>io.swagger</groupId>
-            <artifactId>swagger-jaxrs</artifactId>
+            <artifactId>swagger-jersey2-jaxrs</artifactId>
             <version>${swagger-version}</version>
         </dependency>
 
